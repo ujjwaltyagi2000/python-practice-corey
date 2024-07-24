@@ -55,3 +55,27 @@ with open('test.txt', 'r') as f:
     print(f_contents)
     f_contents = f.read(100) # this will give an empty string
     print(f_contents)
+
+print("\nPrinting n number of characters from the file:")
+
+with open('test.txt', 'r') as f:
+    
+    size_to_read = 50
+
+    f_contents = f.read(size_to_read)
+
+    while len(f_contents) > 0:
+        print(f_contents, end="+") # to see where 100 characters ended
+        f_contents = f.read(size_to_read) # this will kick us back out of the loop and read the rest of the file
+
+# going to the start of the file within the with block:
+print("\ngoing to the start of the file within the with block:")
+
+with open('test.txt', 'r') as f:
+    size_to_read = 100
+    f_contents = f.read(size_to_read)
+    print(f_contents)
+    print("\ngoing to the start of the file now..\n")
+    f.seek(0) # going to the start of the file
+    f_contents=f.read(size_to_read)
+    print(f_contents)
